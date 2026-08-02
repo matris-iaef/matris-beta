@@ -327,29 +327,17 @@
       btn.disabled = true;
 
       try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbzZQSo4Ula6QW9UdI9N9dGCMWbsN3BpZN-CINbyPjUMvI6hPzlS9ZcNaxyFV0UK6m1YRA/exec', {
+        await fetch('https://script.google.com/macros/s/AKfycbzZQSo4Ula6QW9UdI9N9dGCMWbsN3BpZN-CINbyPjUMvI6hPzlS9ZcNaxyFV0UK6m1YRA/exec', {
           method: 'POST',
+          mode: 'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ nom, prenom, email })
         });
-
-        if (response.ok) {
-          document.getElementById('formZone').style.display = 'none';
-          document.getElementById('confirmation').style.display = 'block';
-        } else {
-          throw new Error('Erreur serveur');
-        }
+        document.getElementById('formZone').style.display = 'none';
+        document.getElementById('confirmation').style.display = 'block';
       } catch (e) {
-        // Fallback mailto si le Worker n'est pas encore configuré
-        const sujet = encodeURIComponent('Inscription bêta test MATRIS Adulte');
-        const corps = encodeURIComponent(
-          'Bonjour,\n\nNouvelle inscription bêta test MATRIS Adulte :\n\nNom : ' + nom +
-          '\nPrénom : ' + prenom +
-          '\nEmail : ' + email +
-          '\n\nToute l\'équipe MATRIS'
-        );
-        window.location.href = 'mailto:betatest_ma@matris-iaef.fr?subject=' + sujet + '&body=' + corps;
-        btn.textContent = 'Je participe au bêta test';
+        alert('Une erreur est survenue. Merci de réessayer.');
+        btn.innerHTML = '<span class="btn-ligne1">JE PARTICIPE</span><span class="btn-ligne2">je découvre MATRIS Adulte</span>';
         btn.disabled = false;
       }
     }
