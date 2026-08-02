@@ -57,8 +57,8 @@
     }
 
     .logo-wrap img {
-      width: 110px;
-      height: 110px;
+      width: 180px;
+      height: 180px;
       object-fit: contain;
       border-radius: 50%;
       box-shadow: 0 8px 24px rgba(201,168,76,0.3);
@@ -66,12 +66,12 @@
 
     /* Titre */
     .page-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-size: 28px;
-      font-weight: 900;
-      color: var(--dark);
+      font-weight: 800;
+      color: #000000;
       text-align: center;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       margin-bottom: 4px;
     }
 
@@ -117,27 +117,7 @@
       font-weight: 600;
     }
 
-    /* Encadré bêta test */
-    .beta-info {
-      background: var(--white);
-      border-left: 3px solid var(--gold);
-      border-radius: 10px;
-      padding: 14px 16px;
-      margin-bottom: 28px;
-    }
 
-    .beta-info .beta-titre {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .beta-info p {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
 
     /* Formulaire */
     .form-group {
@@ -181,30 +161,36 @@
       width: 100%;
       padding: 16px;
       margin-top: 8px;
-      background: linear-gradient(135deg, var(--dark) 0%, #2d2d4e 100%);
-      color: var(--gold2);
+      background: #000000;
+      color: #ffffff;
       border: none;
       border-radius: 12px;
-      font-family: 'Playfair Display', serif;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
+      font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
     }
 
-    .btn::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 40%, rgba(201,168,76,0.15));
+    .btn-ligne1 {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .btn-ligne2 {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
     }
 
     .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(26,26,46,0.35);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
 
     .btn:active {
@@ -257,7 +243,7 @@
     @media (max-width: 520px) {
       .card { padding: 36px 24px 32px; }
       .page-title { font-size: 24px; }
-      .logo-wrap img { width: 90px; height: 90px; }
+      .logo-wrap img { width: 150px; height: 150px; }
     }
   </style>
 </head>
@@ -283,11 +269,7 @@
         MATRIS est une application d'éducation financière conçue pour vous aider à mieux <strong>comprendre et gérer votre argent</strong>.<br>Rejoignez nos premiers bêta testeurs et participez à l'aventure !
       </p>
 
-      <!-- Encadré bêta test -->
-      <div class="beta-info">
-        <div class="beta-titre">🔍 C'est quoi un bêta test ?</div>
-        <p>C'est une phase de test avant le lancement officiel. Vous accédez à l'application en avant-première, gratuitement, et vous nous donnez votre avis. C'est tout !</p>
-      </div>
+
 
       <!-- Formulaire -->
       <div id="formZone">
@@ -304,7 +286,10 @@
           <input type="email" id="email" placeholder="votre@email.fr" autocomplete="email">
         </div>
 
-        <button class="btn" onclick="soumettreFormulaire()">Je participe au bêta test</button>
+        <button class="btn" onclick="soumettreFormulaire()">
+          <span class="btn-ligne1">JE PARTICIPE</span>
+          <span class="btn-ligne2">je découvre MATRIS Adulte</span>
+        </button>
 
         <p class="mention">Vos données ne seront utilisées que dans le cadre du bêta test.</p>
       </div>
